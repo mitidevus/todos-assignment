@@ -4,14 +4,14 @@ from sqlalchemy import Column, String, Uuid, Enum, ForeignKey
 from .base_entity import BaseEntity
 
 class TaskStatus(enum.Enum):
-    TODO = 'T'
-    IN_PROGRESS = 'I'
-    DONE = 'D'
+    TODO = 'TODO'
+    IN_PROGRESS = 'IN_PROGRESS'
+    DONE = 'DONE'
     
 class TaskPriority(enum.Enum):
-    LOW = 'L'
-    MEDIUM = 'M'
-    HIGH = 'H'
+    LOW = 'LOW'
+    MEDIUM = 'MEDIUM'
+    HIGH = 'HIGHT'
 
 class Task(BaseEntity, Base):
     __tablename__ = "tasks"

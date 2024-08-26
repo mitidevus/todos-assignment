@@ -4,8 +4,8 @@ from database import Base
 from .base_entity import BaseEntity
 
 class CompanyMode(enum.Enum):
-    DRAFT = 'D'
-    PUBLISHED = 'P'
+    DRAFT = 'DRAFT'
+    PUBLISHED = 'PUBLISHED'
 
 class Company(BaseEntity, Base):
     __tablename__ = "companies"
