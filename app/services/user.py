@@ -4,7 +4,7 @@ from sqlalchemy.orm import Session
 from sqlalchemy.ext.asyncio import AsyncSession
 from services import utils
 from models import UserModel, UpdateUserModel
-from schemas import User
+from schemas import User, get_password_hash
 from services.exception import ResourceNotFoundError, ResourceAlreadyExistsError
 
 
@@ -31,6 +31,7 @@ def create_user(db: Session, data: UserModel) -> User:
     
     user = User(**data.model_dump())
 
+    user.password = get_password_hash(data.password)
     user.created_at = utils.get_current_utc_time()
     user.updated_at = utils.get_current_utc_time()
     

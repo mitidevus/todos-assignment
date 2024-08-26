@@ -23,5 +23,5 @@ class User(BaseEntity, Base):
 def get_password_hash(password):
     return bcrypt_context.hash(password)
 
-def verify_password(plain_password, hased_password):
-    return bcrypt_context.verify(plain_password, hased_password)
+def verify_password(plain_password, hashed_password):
+    return bcrypt_context.verify(plain_password, hashed_password)
