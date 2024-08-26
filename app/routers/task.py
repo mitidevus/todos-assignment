@@ -37,22 +37,3 @@ async def create_task(
         user_id = user.id
 
         return TaskService.create_task(db, request, user_id)
-    
-
-# @router.get("/{book_id}", response_model=TaskViewModel)
-# async def get_book_detail(book_id: UUID, db: Session=Depends(get_db_context)):
-#     book = TaskService.get_book_by_id(db, book_id, joined_load=True)
-    
-#     if book is None:
-#         raise ResourceNotFoundError()
-
-#     return book
-
-
-# @router.put("/{book_id}", status_code=status.HTTP_200_OK, response_model=TaskViewModel)
-# async def update_book(
-#     book_id: UUID,
-#     request: BookModel,
-#     db: Session=Depends(get_db_context),
-#     ):
-#         return TaskService.update_book(db, book_id, request)
