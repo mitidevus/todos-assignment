@@ -21,7 +21,6 @@ class UserBaseModel(BaseModel):
         from_attributes = True
 
 class UserViewModel(UserBaseModel):
-    is_active: bool
     is_admin: bool
     created_at: datetime | None = None
     update_at: datetime | None = None
