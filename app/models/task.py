@@ -2,6 +2,7 @@ from pydantic import BaseModel, Field
 from datetime import datetime
 from uuid import UUID
 from schemas import TaskStatus, TaskPriority
+from models.user import UserViewModel
 
 class TaskModel(BaseModel):
     summary: str = Field(min_length=3, max_length=100)

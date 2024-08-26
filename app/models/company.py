@@ -4,15 +4,9 @@ from datetime import datetime
 from pydantic import BaseModel, Field
 from schemas import CompanyMode
 
-class SearchCompanyModel():
-    def __init__(self, name, page, size) -> None:
-        self.name = name
-        self.page = page
-        self.size = size
-
 class CompanyModel(BaseModel):
     name: str
-    description: Optional[str]
+    description: Optional[str] = None
     rating: int = Field(ge=0, le=5, default=0)
     mode: CompanyMode = Field(default=CompanyMode.DRAFT)
     

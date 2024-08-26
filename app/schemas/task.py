@@ -11,7 +11,7 @@ class TaskStatus(enum.Enum):
 class TaskPriority(enum.Enum):
     LOW = 'LOW'
     MEDIUM = 'MEDIUM'
-    HIGH = 'HIGHT'
+    HIGH = 'HIGH'
 
 class Task(BaseEntity, Base):
     __tablename__ = "tasks"

@@ -19,7 +19,8 @@ def create_access_token(user: User, expires: Optional[timedelta] = None):
         "id": str(user.id),
         "first_name": user.first_name,
         "last_name": user.last_name,
-        "is_admin": user.is_admin
+        "is_admin": user.is_admin,
+        "company_id": str(user.company_id)
     }
     expire = get_current_utc_time() + expires if expires else get_current_utc_time() + timedelta(minutes=10)
     claims.update({"exp": expire})
@@ -43,6 +44,7 @@ def token_interceptor(token: str = Depends(oa2_bearer)) -> User:
         user.first_name = payload.get("first_name")
         user.last_name = payload.get("last_name")
         user.is_admin = payload.get("is_admin")
+        user.company_id = payload.get("company_id")
         
         if user.username is None or user.id is None:
             raise token_exception()
